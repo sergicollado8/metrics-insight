@@ -1,0 +1,23 @@
+# Distribution / packaging
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Sphinx documentation
+docs/
+dist/
+site/
+
+#
+# Environments
+.env
+
+# IDEs
+*.iml
+.vscode/
+
+# Project Specific
+output/
+.DS_Store
+/.idea/

@@ -1,0 +1,45 @@
+site_name: Metrics Insight
+site_description: Engineering productivity tool for GitHub and Jira
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_category_heading: true
+
+nav:
+  - Home: index.md
+  - User Guide:
+      - Installation: installation.md
+      - Usage: usage.md
+  - API Reference:
+      - Domain: api/domain.md
+      - Application: api/application.md
+  - Development:
+      - Standards: standards.md
+      - Specifications: specifications.md
