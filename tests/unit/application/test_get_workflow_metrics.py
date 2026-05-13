@@ -1,7 +1,7 @@
 from datetime import datetime, timezone, timedelta
 from unittest.mock import MagicMock
-from src.metrics_insight.application.get_workflow_metrics import GetWorkflowMetrics
-from src.metrics_insight.domain.workflow import WorkflowRun
+from metrics_insight.application.get_workflow_metrics import GetWorkflowMetrics
+from metrics_insight.domain.workflow import WorkflowRun
 
 
 def test_get_workflow_metrics_execute():

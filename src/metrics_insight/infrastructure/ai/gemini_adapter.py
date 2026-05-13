@@ -6,7 +6,7 @@ try:
 except ImportError:
     genai = None
 
-from src.metrics_insight.domain.repository_interfaces import SentimentAnalyzer, RootCauseAnalyzer, PredictiveAnalyzer
+from metrics_insight.domain.repository_interfaces import SentimentAnalyzer, RootCauseAnalyzer, PredictiveAnalyzer
 
 
 class GeminiAIAdapter(SentimentAnalyzer, RootCauseAnalyzer, PredictiveAnalyzer):

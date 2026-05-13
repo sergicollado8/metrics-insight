@@ -2,9 +2,9 @@ import pytest
 from click.testing import CliRunner
 from unittest.mock import MagicMock, patch
 from datetime import datetime, timezone
-from src.metrics_insight.infrastructure.cli.main import cli
-from src.metrics_insight.application.calculate_metrics import CalculationResult, PRPrediction
-from src.metrics_insight.domain.metrics_service import GroupMetrics
+from metrics_insight.infrastructure.cli.main import cli
+from metrics_insight.application.calculate_metrics import CalculationResult, PRPrediction
+from metrics_insight.domain.metrics_service import GroupMetrics
 
 
 class TestFetchCommandAcceptance:
@@ -19,7 +19,7 @@ class TestFetchCommandAcceptance:
 
     @pytest.fixture
     def mock_bootstrap(self):
-        with patch("src.metrics_insight.infrastructure.cli.main._container") as mock:
+        with patch("metrics_insight.infrastructure.cli.main._container") as mock:
             yield mock
 
     def test_fetch_command_success(self, runner, mock_bootstrap):
@@ -69,7 +69,7 @@ class TestFetchCommandAcceptance:
 
     def test_fetch_command_bootstrap_failure(self, runner):
         # Simulate _container being None (bootstrap failure)
-        with patch("src.metrics_insight.infrastructure.cli.main._container", None):
+        with patch("metrics_insight.infrastructure.cli.main._container", None):
             result = runner.invoke(cli, ["fetch", "--repo", "owner/repo", "--start", "2024-01-01", "--end", "2024-01-31"])
             
         assert "Error: Bootstrap failed" in result.output

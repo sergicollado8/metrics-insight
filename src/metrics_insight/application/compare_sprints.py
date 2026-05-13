@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
-from src.metrics_insight.domain.repository_interfaces import GitHubRepository, MetricsExporter
-from src.metrics_insight.domain.metrics_service import MetricsService
+from metrics_insight.domain.repository_interfaces import GitHubRepository, MetricsExporter
+from metrics_insight.domain.metrics_service import MetricsService
 
 
 class CompareSprints:

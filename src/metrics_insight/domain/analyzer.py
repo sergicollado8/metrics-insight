@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Optional, Protocol
-from src.metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.pull_request import PullRequest
 
 
 @dataclass(frozen=True)

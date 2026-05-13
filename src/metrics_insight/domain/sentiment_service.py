@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
-from src.metrics_insight.domain.pull_request import PullRequest
-from src.metrics_insight.domain.repository_interfaces import SentimentAnalyzer
+from metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.repository_interfaces import SentimentAnalyzer
 
 
 class SentimentService:

@@ -1,4 +1,4 @@
-from src.metrics_insight.domain.metrics import MetricCalculator
+from metrics_insight.domain.metrics import MetricCalculator
 
 
 def test_calculate_aggregates():

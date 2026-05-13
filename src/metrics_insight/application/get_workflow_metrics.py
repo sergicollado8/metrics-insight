@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Dict, Any
-from src.metrics_insight.domain.repository_interfaces import GitHubRepository
+from metrics_insight.domain.repository_interfaces import GitHubRepository
 
 class GetWorkflowMetrics:
     """Use case to fetch and process GitHub Actions workflow runs metrics."""

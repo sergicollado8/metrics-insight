@@ -24,16 +24,16 @@ test:
 
 lint:
 	ruff check .
-	mypy src/
+	MYPYPATH=src mypy -p metrics_insight
 
-run:
-	python3 -m src.metrics_insight.infrastructure.cli.main fetch $(ARGS)
+run: #without Docker
+	python3 -m metrics_insight.infrastructure.cli.main fetch $(ARGS)
 
-compare:
-	python3 -m src.metrics_insight.infrastructure.cli.main compare $(ARGS)
+compare: #without Docker
+	python3 -m metrics_insight.infrastructure.cli.main compare $(ARGS)
 
-actions:
-	python3 -m src.metrics_insight.infrastructure.cli.main actions $(ARGS)
+actions: #without Docker
+	python3 -m metrics_insight.infrastructure.cli.main actions $(ARGS)
 
 build:
 	python3 -m build
@@ -48,4 +48,4 @@ docker-build:
 	docker build -t metrics-insight:latest .
 
 docker-run:
-	docker run --rm -v $(PWD)/output:/app/output --env-file .env metrics-insight:latest $(ARGS)
+	docker run --rm -v $(PWD)/output:/app/output --env-file .env -e FORCE_COLOR=1 metrics-insight:latest $(ARGS)

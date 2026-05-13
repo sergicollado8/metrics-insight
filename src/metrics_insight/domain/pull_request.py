@@ -44,7 +44,7 @@ class PullRequest:
     @property
     def waiting_for_reviewer_h(self) -> float:
         """Time spent waiting for the first review since request."""
-        from src.metrics_insight.domain.business_hours import BusinessHoursCalculator
+        from metrics_insight.domain.business_hours import BusinessHoursCalculator
         start = self.review_requested_at or self.created_at
         first_review = self.first_human_review
         if not first_review:
@@ -54,7 +54,7 @@ class PullRequest:
     @property
     def waiting_for_author_h(self) -> float:
         """Time spent by the author addressing feedback (Rework)."""
-        from src.metrics_insight.domain.business_hours import BusinessHoursCalculator
+        from metrics_insight.domain.business_hours import BusinessHoursCalculator
         first_review = self.first_human_review
         if not first_review:
             return 0.0
@@ -81,7 +81,7 @@ class PullRequest:
         Returns:
             float: Duration in business hours, or 0.0 if not merged.
         """
-        from src.metrics_insight.domain.business_hours import BusinessHoursCalculator
+        from metrics_insight.domain.business_hours import BusinessHoursCalculator
         if not self.is_merged:
             return 0.0
         return BusinessHoursCalculator.calculate_duration_h(self.created_at, self.merged_at)

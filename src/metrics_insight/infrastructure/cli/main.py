@@ -7,19 +7,19 @@ from typing import List, Dict, Any, Optional
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from src.metrics_insight.application.calculate_metrics import PRPrediction
-from src.metrics_insight.domain.analyzer import Insight
-from src.metrics_insight.domain.metrics_service import GroupMetrics
+from metrics_insight.application.calculate_metrics import PRPrediction
+from metrics_insight.domain.analyzer import Insight
+from metrics_insight.domain.metrics_service import GroupMetrics
 from dotenv import load_dotenv
 
-from src.metrics_insight.bootstrap import bootstrap
+from metrics_insight.bootstrap import bootstrap
 
 load_dotenv()
 console = Console()
 
 try:
     _container = bootstrap()
-except Exception as e:
+except Exception:
     _container = None
 
 def display_predictions(predictions: List[PRPrediction]) -> None:

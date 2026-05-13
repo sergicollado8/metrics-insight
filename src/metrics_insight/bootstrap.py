@@ -1,10 +1,10 @@
 import os
-from src.metrics_insight.application.calculate_metrics import CalculateMetrics
-from src.metrics_insight.application.compare_sprints import CompareSprints
-from src.metrics_insight.application.get_workflow_metrics import GetWorkflowMetrics
-from src.metrics_insight.infrastructure.github.github_adapter import PyGithubAdapter
-from src.metrics_insight.infrastructure.csv.csv_exporter import CSVExporter
-from src.metrics_insight.infrastructure.ai.gemini_adapter import GeminiAIAdapter
+from metrics_insight.application.calculate_metrics import CalculateMetrics
+from metrics_insight.application.compare_sprints import CompareSprints
+from metrics_insight.application.get_workflow_metrics import GetWorkflowMetrics
+from metrics_insight.infrastructure.github.github_adapter import PyGithubAdapter
+from metrics_insight.infrastructure.csv.csv_exporter import CSVExporter
+from metrics_insight.infrastructure.ai.gemini_adapter import GeminiAIAdapter
 
 
 class Bootstrap:

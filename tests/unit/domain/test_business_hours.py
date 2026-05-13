@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from src.metrics_insight.domain.business_hours import BusinessHoursCalculator
+from metrics_insight.domain.business_hours import BusinessHoursCalculator
 
 
 def test_calculate_duration_same_day():

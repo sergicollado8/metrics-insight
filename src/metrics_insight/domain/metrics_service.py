@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List, Dict, Any, Optional, Set
-from src.metrics_insight.domain.pull_request import PullRequest
-from src.metrics_insight.domain.metrics import MetricCalculator, AggregatedMetric
-from src.metrics_insight.domain.business_hours import BusinessHoursCalculator
+from metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.metrics import MetricCalculator, AggregatedMetric
+from metrics_insight.domain.business_hours import BusinessHoursCalculator
 
 
 @dataclass(frozen=True)

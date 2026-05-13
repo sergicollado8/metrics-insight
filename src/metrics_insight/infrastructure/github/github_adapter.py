@@ -3,9 +3,9 @@ import concurrent.futures
 from datetime import datetime, timezone
 from typing import List, Optional
 from github import Github, PullRequest as PyGithubPullRequest
-from src.metrics_insight.domain.pull_request import PullRequest, Review
-from src.metrics_insight.domain.workflow import WorkflowRun
-from src.metrics_insight.domain.repository_interfaces import GitHubRepository
+from metrics_insight.domain.pull_request import PullRequest, Review
+from metrics_insight.domain.workflow import WorkflowRun
+from metrics_insight.domain.repository_interfaces import GitHubRepository
 
 
 class PyGithubAdapter(GitHubRepository):

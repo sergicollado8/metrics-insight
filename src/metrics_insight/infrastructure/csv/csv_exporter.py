@@ -1,9 +1,9 @@
 import os
 import pandas as pd
 from typing import List
-from src.metrics_insight.domain.pull_request import PullRequest
-from src.metrics_insight.domain.repository_interfaces import MetricsExporter, ExportResult
-from src.metrics_insight.domain.business_hours import BusinessHoursCalculator
+from metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.repository_interfaces import MetricsExporter, ExportResult
+from metrics_insight.domain.business_hours import BusinessHoursCalculator
 
 
 class CSVExporter(MetricsExporter):

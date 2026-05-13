@@ -1,6 +1,6 @@
 from datetime import datetime, timezone, timedelta
-from src.metrics_insight.domain.pull_request import PullRequest, Review
-from src.metrics_insight.domain.analyzer import InsightAnalyzer
+from metrics_insight.domain.pull_request import PullRequest, Review
+from metrics_insight.domain.analyzer import InsightAnalyzer
 
 
 def test_analyzer_detects_bottleneck():

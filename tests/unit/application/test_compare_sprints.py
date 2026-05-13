@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock
 from datetime import datetime, timezone, timedelta
-from src.metrics_insight.application.compare_sprints import CompareSprints
-from src.metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.application.compare_sprints import CompareSprints
+from metrics_insight.domain.pull_request import PullRequest
 
 
 def test_compare_sprints_logic():

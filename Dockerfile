@@ -19,6 +19,7 @@ WORKDIR /app
 COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
+COPY pyproject.toml .
 COPY src/ src/
 RUN pip install -e .
 

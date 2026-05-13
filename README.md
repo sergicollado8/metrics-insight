@@ -16,7 +16,10 @@
 > [!IMPORTANT]
 > **Privacy Notice:** When `GEMINI_API_KEY` is provided, this tool sends Pull Request metadata, titles, descriptions, and human review comments to Google's Gemini API for sentiment analysis and root cause identification. If you are working in a privacy-sensitive environment or with proprietary code where third-party AI processing is restricted, omit the `GEMINI_API_KEY` to keep all processing local to your machine.
 
-## Installation
+## Installation & Setup
+
+### Using Docker (Recommended)
+The easiest way to run `Metrics Insight` is using Docker. This ensures all dependencies and Python versions are correctly configured.
 
 1. **Clone the repository:**
    ```bash
@@ -24,40 +27,49 @@
    cd metrics_insight
    ```
 
-2. **Install dependencies:**
-   ```bash
-   # Create a virtual environment and install core + dev dependencies
-   make install
-   ```
-
-3. **Configure Environment:**
+2. **Configure Environment:**
    Create a `.env` file in the root directory (use `.env.template` as a guide):
    ```text
    GITHUB_TOKEN=your_github_token
    GEMINI_API_KEY=your_gemini_api_key  # Optional
    ```
 
+3. **Build the image:**
+   ```bash
+   make docker-build
+   ```
+
+### Local Installation (Development)
+If you prefer to run it locally or contribute to the code:
+```bash
+make install
+```
+
 ## Usage
 
-The tool provides several commands via a CLI interface. You can use `make` shortcuts or call the module directly.
+The tool provides several commands. When using Docker, use `make docker-run ARGS="<command> <options>"` to ensure your `.env` is loaded and your `output/` folder is synced.
 
 ### 1. Fetch Basic Metrics
 Extracts PR metrics and saves them to CSV. Also performs AI analysis if a Gemini key is provided.
 ```bash
-make run ARGS="--repo owner/repo --start 2024-01-01 --end 2024-03-31"
+make docker-run ARGS="fetch --repo owner/repo --start 2024-01-01 --end 2024-03-31"
 ```
 
 ### 2. Compare Sprints (Trajectories)
 Compares multiple time windows to see if the team's performance is improving.
 ```bash
-make compare ARGS="--repo owner/repo --start 2024-01-01 --weeks 2 --sprints 4"
+make docker-run ARGS="compare --repo owner/repo --start 2024-01-01 --weeks 2 --sprints 4"
 ```
 
 ### 3. Analyze GitHub Actions
 Analyzes workflow execution times and success rates.
 ```bash
-make actions ARGS="--repo owner/repo --start 2024-01-01 --end 2024-03-31"
+make docker-run ARGS="actions --repo owner/repo --start 2024-01-01 --end 2024-03-31"
 ```
+
+---
+
+*Note: For local execution without Docker, replace `make docker-run ARGS="..."` with `make <command> ARGS="..."` (e.g., `make run ARGS="..."` for fetching).*
 
 ## Metrics Definitions
 - **PR Size:** Total lines changed (additions + deletions).

@@ -1,8 +1,8 @@
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
-from src.metrics_insight.domain.pull_request import PullRequest
-from src.metrics_insight.domain.repository_interfaces import (
+from metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.repository_interfaces import (
     GitHubRepository, 
     MetricsExporter, 
     ExportResult, 
@@ -10,9 +10,9 @@ from src.metrics_insight.domain.repository_interfaces import (
     RootCauseAnalyzer,
     PredictiveAnalyzer
 )
-from src.metrics_insight.domain.analyzer import InsightAnalyzer, Insight
-from src.metrics_insight.domain.metrics_service import MetricsService, GroupMetrics
-from src.metrics_insight.domain.sentiment_service import SentimentService
+from metrics_insight.domain.analyzer import InsightAnalyzer, Insight
+from metrics_insight.domain.metrics_service import MetricsService, GroupMetrics
+from metrics_insight.domain.sentiment_service import SentimentService
 
 
 @dataclass(frozen=True)

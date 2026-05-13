@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
-from src.metrics_insight.domain.pull_request import PullRequest
-from src.metrics_insight.domain.metrics_service import MetricsService
+from metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.metrics_service import MetricsService
 
 
 def test_calculate_team_metrics():

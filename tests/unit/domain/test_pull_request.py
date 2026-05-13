@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from src.metrics_insight.domain.pull_request import PullRequest, Review
+from metrics_insight.domain.pull_request import PullRequest, Review
 
 
 def test_pull_request_size():

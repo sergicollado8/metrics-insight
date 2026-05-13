@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock, patch
 from datetime import datetime, timezone
-from src.metrics_insight.infrastructure.github.github_adapter import PyGithubAdapter
+from metrics_insight.infrastructure.github.github_adapter import PyGithubAdapter
 
 
 class TestPyGithubAdapterIntegration:
@@ -12,7 +12,7 @@ class TestPyGithubAdapterIntegration:
 
     @pytest.fixture
     def mock_github(self):
-        with patch("src.metrics_insight.infrastructure.github.github_adapter.Github") as mock:
+        with patch("metrics_insight.infrastructure.github.github_adapter.Github") as mock:
             yield mock
 
     @pytest.fixture

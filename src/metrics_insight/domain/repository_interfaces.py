@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 from typing import List, Dict, Any
 from dataclasses import dataclass
-from src.metrics_insight.domain.pull_request import PullRequest
-from src.metrics_insight.domain.workflow import WorkflowRun
+from metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.domain.workflow import WorkflowRun
 
 
 @dataclass(frozen=True)

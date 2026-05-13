@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock
 from datetime import datetime, timezone
-from src.metrics_insight.application.calculate_metrics import CalculateMetrics
-from src.metrics_insight.domain.pull_request import PullRequest
+from metrics_insight.application.calculate_metrics import CalculateMetrics
+from metrics_insight.domain.pull_request import PullRequest
 
 
 def test_calculate_metrics_orchestration():
