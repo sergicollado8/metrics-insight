@@ -3,7 +3,7 @@ name = "metrics-insight"
 version = "0.1.0"
 description = "Herramienta de métricas de ingeniería para GitHub y Jira"
 authors = [
-    { name = "Sergi Collado", email = "sergi.collado@example.com" }
+    { name = "Sergi Collado", email = "sergi.ch8@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
