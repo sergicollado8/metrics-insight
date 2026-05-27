@@ -73,3 +73,33 @@ def test_calculate_label_metrics():
     
     assert labels["Label: urgent"].total_prs == 1
     assert labels["Label: urgent"].metrics["pr_size"].average == 300.0
+
+
+def test_calculate_metrics_with_unmerged_prs():
+    """Verify that unmerged PRs are counted but don't affect lifetime metrics."""
+    t1 = datetime(2026, 4, 1, 9, 0, tzinfo=timezone.utc)
+    t2 = datetime(2026, 4, 1, 10, 0, tzinfo=timezone.utc)  # 1h later
+    
+    prs = [
+        # Merged PR
+        PullRequest(
+            number=1, title="Merged PR", author="alice", 
+            created_at=t1, merged_at=t2, closed_at=t2, additions=100
+        ),
+        # Closed but not merged PR
+        PullRequest(
+            number=2, title="Closed PR", author="bob", 
+            created_at=t1, closed_at=t2, additions=200
+        )
+    ]
+    
+    service = MetricsService()
+    result = service.calculate_team_metrics(prs)
+    
+    assert result.total_prs == 2
+    assert result.merged_prs == 1
+    assert result.closed_unmerged_prs == 1
+    
+    # lifetime_h should only be calculated for the merged one
+    # 1h duration
+    assert result.metrics["pr_lifetime_h"].average == 1.0

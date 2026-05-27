@@ -36,10 +36,10 @@ class PyGithubAdapter(GitHubRepository):
         
         target_gprs: List[PyGithubPullRequest.PullRequest] = []
         for gpr in github_prs:
-            if gpr.merged_at:
-                merged_at_utc = self._ensure_utc(gpr.merged_at)
-                if start_date <= merged_at_utc <= end_date:
-                    target_gprs.append(gpr)
+            closed_at_utc = self._ensure_utc(gpr.closed_at) if gpr.closed_at else None
+            
+            if closed_at_utc and start_date <= closed_at_utc <= end_date:
+                target_gprs.append(gpr)
             
             if self._ensure_utc(gpr.updated_at) < start_date:
                 break
@@ -53,7 +53,7 @@ class PyGithubAdapter(GitHubRepository):
                 except Exception as exc:
                     print(f"PR detail fetch generated an exception: {exc}")
                 
-        return sorted(domain_prs, key=lambda x: x.merged_at if x.merged_at else x.created_at, reverse=True)
+        return sorted(domain_prs, key=lambda x: x.closed_at if x.closed_at else x.created_at, reverse=True)
 
     def get_workflow_runs(
         self, repo_full_name: str, start_date: datetime, end_date: datetime

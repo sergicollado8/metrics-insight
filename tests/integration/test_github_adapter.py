@@ -28,6 +28,7 @@ class TestPyGithubAdapterIntegration:
         
         pr1 = MagicMock()
         pr1.merged_at = datetime(2024, 1, 15, tzinfo=timezone.utc)
+        pr1.closed_at = datetime(2024, 1, 15, tzinfo=timezone.utc)
         pr1.updated_at = datetime(2024, 1, 16, tzinfo=timezone.utc)
         pr1.number = 101
         pr1.title = "Feature PR"
@@ -43,6 +44,7 @@ class TestPyGithubAdapterIntegration:
         
         pr2 = MagicMock()
         pr2.merged_at = datetime(2023, 12, 31, tzinfo=timezone.utc)
+        pr2.closed_at = datetime(2023, 12, 31, tzinfo=timezone.utc)
         pr2.updated_at = datetime(2024, 1, 1, tzinfo=timezone.utc)
         
         mock_repo.get_pulls.return_value = [pr1, pr2]

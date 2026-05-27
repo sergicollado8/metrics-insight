@@ -10,6 +10,8 @@ class GroupMetrics:
     """Metrics for a specific group (Team, Individual, or Label)."""
     label: str
     total_prs: int
+    merged_prs: int
+    closed_unmerged_prs: int
     prs_with_jira: int
     prs_without_jira: int
     jira_percentage: float
@@ -20,6 +22,8 @@ class GroupMetrics:
         result = {
             "label": self.label,
             "total_prs": self.total_prs,
+            "merged_prs": self.merged_prs,
+            "closed_unmerged_prs": self.closed_unmerged_prs,
             "prs_with_jira": self.prs_with_jira,
             "prs_without_jira": self.prs_without_jira,
             "jira_percentage": self.jira_percentage,
@@ -91,6 +95,8 @@ class MetricsService:
                 )
 
         total_prs = len(prs)
+        merged_prs = len([pr for pr in prs if pr.merged_at])
+        closed_unmerged_prs = total_prs - merged_prs
         jira_percentage = (prs_with_jira / total_prs * 100) if total_prs > 0 else 0
 
         metrics = {
@@ -106,6 +112,8 @@ class MetricsService:
         return GroupMetrics(
             label=label,
             total_prs=total_prs,
+            merged_prs=merged_prs,
+            closed_unmerged_prs=closed_unmerged_prs,
             prs_with_jira=prs_with_jira,
             prs_without_jira=total_prs - prs_with_jira,
             jira_percentage=jira_percentage,

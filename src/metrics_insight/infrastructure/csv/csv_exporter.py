@@ -55,6 +55,8 @@ class CSVExporter(MetricsExporter):
                 "author": pr.author,
                 "created_at": pr.created_at.isoformat(),
                 "merged_at": pr.merged_at.isoformat() if pr.merged_at else "",
+                "closed_at": pr.closed_at.isoformat() if pr.closed_at else "",
+                "is_merged": pr.is_merged,
                 "size": pr.size,
                 "lifetime_h": round(lifetime_h, 2),
                 "time_to_first_review_h": round(tt_first_review_h, 2),
